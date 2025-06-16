@@ -9,8 +9,8 @@
   -At start, fetch different images from web and show them into structure
 
   Elaboration of point one: 
-    - render the page
-    - page has score counter component, and container with all cards
+    - [X] render the page
+    - [X] page has score counter component, and container with all cards
     - fetch 12 elements, so row: 3 column : 4
     - randomize them into the cards
   End of first elaboration
