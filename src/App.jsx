@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import Score from './components/Score';
 
 import './App.css'
@@ -7,10 +7,17 @@ function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
-  useMemo(() => fetch(), []);  // this fetches the images from the api. 
-                               // we only need to fetch once because it needs to have the same pokemons
-                               // from 1 to 1290
-                               // fetch("https://pokeapi.co/api/v2/pokemon?offset=12&limit=12")
+  useEffect(() => {
+    const randomNumber = Math.floor(Math.random() * 1302 + 1);
+    const pokemons = [];
+    fetch(`https://pokeapi.co/api/v2/pokemon?offset=${randomNumber}&limit=12`)
+    .then((result) => result.json())
+    .then((element) => pokemons.push(element.url));
+  }, []); 
+
+
+
+  
   
   const handleScore = (element) => {
     setScore(element);
@@ -23,8 +30,8 @@ function App() {
   return(
     <div>
       <Score score={score} bestScore={bestScore}></Score>
-      <Cards changeScore={handleScore} changeBestScore={handleBestScore}></Cards>
-    </div>
+{/*       <Cards changeScore={handleScore} changeBestScore={handleBestScore}></Cards>
+ */}    </div>
   )
 }
 
