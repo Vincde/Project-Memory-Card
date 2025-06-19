@@ -11,7 +11,7 @@
   Elaboration of point one: 
     - [X] render the page
     - [X] page has score counter component, and container with all cards
-    - fetch 12 elements, so row: 3 column : 4
+    - [X]fetch 12 elements, so row: 3 column : 4
     - randomize them into the cards
   End of first elaboration
 

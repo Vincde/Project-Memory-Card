@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Score from './components/Score';
+import Cards from './components/Cards';
 import fetchPokemons from './components/fetchPokemon';
 
 import './App.css'
