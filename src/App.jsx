@@ -14,13 +14,14 @@ function App() {
   useEffect(() => {
     if(!didInit){
     didInit = true;
-    const firstPokemons = fetchPokemons();
-    setPokemons([...firstPokemons]);
+    fetchPokemons(handlePokemons);
     }
   }, []); 
 
 
-
+  const handlePokemons = (pokemons) => {
+    setPokemons([...pokemons]);
+  }
   
   const handleScore = (element) => {
     setScore(element);
