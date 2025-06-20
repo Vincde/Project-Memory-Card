@@ -27,7 +27,7 @@ export default function Cards({score, changeScore, bestScore, changeBestScore, p
 
 
     return(
-        <div onClick={changeScore} onClickCapture={changeBestScore}>
+        <div>
             {pokemons.map((pokemon) => {
                 return(<div key={pokemon.id} onClick={handleCardsClick}>
                     <img src={pokemon.value} alt="" />
