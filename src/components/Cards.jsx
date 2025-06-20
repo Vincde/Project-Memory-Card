@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export default function Cards({score, changeScore, bestScore, changeBestScore, pokemons, handlePokemons}) {
+
+    const [clickedPokemons, setClickedPokemons] = useState([]); 
 
     function randomizeCards() {
         const newArray = shuffleArray(pokemons);
@@ -16,12 +20,21 @@ export default function Cards({score, changeScore, bestScore, changeBestScore, p
         return array;
     }
 
-    function handleCardsClick() {
-        randomizeCards();
-        if((score + 1) > bestScore){
-            changeBestScore(score + 1);
+    function handleCardsClick(url) {
+
+        if(clickedPokemons !== null){
+            clickedPokemons.forEach((pokemon) => {
+                if(pokemon.value === url){
+                    changeScore(0);
+                    randomizeCards();
+                    return;
+                }
+                if(bestScore < score) changeBestScore(score + 1);
+            });
         }
+        
         changeScore(score + 1);
+        randomizeCards();
     }
 
 
@@ -29,7 +42,7 @@ export default function Cards({score, changeScore, bestScore, changeBestScore, p
     return(
         <div>
             {pokemons.map((pokemon) => {
-                return(<div key={pokemon.id} onClick={handleCardsClick}>
+                return(<div key={pokemon.id} onClick={() => handleCardsClick(pokemon.value)}>
                     <img src={pokemon.value} alt="" />
                 </div>)
             })}
