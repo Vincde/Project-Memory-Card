@@ -1,4 +1,4 @@
-export default function Cards({changeScore, changeBestScore, pokemons, handlePokemons}) {
+export default function Cards({score, changeScore, bestScore, changeBestScore, pokemons, handlePokemons}) {
 
     function randomizeCards() {
         const newArray = shuffleArray(pokemons);
@@ -16,12 +16,20 @@ export default function Cards({changeScore, changeBestScore, pokemons, handlePok
         return array;
     }
 
+    function handleCardsClick() {
+        randomizeCards();
+        if((score + 1) > bestScore){
+            changeBestScore(score + 1);
+        }
+        changeScore(score + 1);
+    }
+
 
 
     return(
         <div onClick={changeScore} onClickCapture={changeBestScore}>
             {pokemons.map((pokemon) => {
-                return(<div key={pokemon.id}>
+                return(<div key={pokemon.id} onClick={handleCardsClick}>
                     <img src={pokemon.value} alt="" />
                 </div>)
             })}
