@@ -1,4 +1,10 @@
-export default function Cards({changeScore, changeBestScore, pokemons}) {
+export default function Cards({changeScore, changeBestScore, pokemons, handlePokemons}) {
+
+    function randomizeCards() {
+
+    }
+
+
 
     return(
         <div onClick={changeScore} onClickCapture={changeBestScore}>

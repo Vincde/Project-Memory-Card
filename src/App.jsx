@@ -35,7 +35,7 @@ function App() {
   return(
     <div>
       <Score score={score} bestScore={bestScore}></Score>
-      <Cards changeScore={handleScore} changeBestScore={handleBestScore} pokemons={pokemons}></Cards>
+      <Cards changeScore={handleScore} changeBestScore={handleBestScore} pokemons={pokemons} handlePokemons={handlePokemons}></Cards>
     </div>
   )
 }
