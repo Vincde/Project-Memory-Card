@@ -20,22 +20,33 @@ export default function Cards({score, changeScore, bestScore, changeBestScore, p
         return array;
     }
 
-    function handleCardsClick(url) {
+function handleCardsClick(url) {
 
-        if(clickedPokemons !== null){
-            clickedPokemons.forEach((pokemon) => {
-                if(pokemon.value === url){
-                    changeScore(0);
-                    randomizeCards();
-                    return;
-                }
-                if(bestScore < score) changeBestScore(score + 1);
-            });
+        if(clickedPokemons.length === 0){
+            changeScore(score + 1);
+            setClickedPokemons([url]);
+            randomizeCards();
+            return;
         }
-        
+
         changeScore(score + 1);
+        setClickedPokemons([...clickedPokemons, url]);
+
+        clickedPokemons.forEach((element) => {
+            if(element === url){
+                if(score > bestScore) changeBestScore(score);
+                changeScore(0);
+                randomizeCards();
+                setClickedPokemons([]);
+                return;
+            }
+        }); 
+        
+        
         randomizeCards();
-    }
+            
+        
+}
 
 
 

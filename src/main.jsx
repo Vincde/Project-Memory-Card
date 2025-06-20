@@ -6,17 +6,23 @@
 
 
   PSEUDOCODE: 
-  -At start, fetch different images from web and show them into structure
 
-  Elaboration of point one: 
-    - [X] render the page
-    - [X] page has score counter component, and container with all cards
-    - [X]fetch 12 elements, so row: 3 column : 4
-    - []randomize them into the cards
-  End of first elaboration
+  -user can click one image at a time:  
+    - if image is clicked:        <---- you are here
+      -control if the image is already clicked image
+        -if it is not clicked:
+          -set score + 1
+          -randomize cards
+          -add new element to array of clicked pokemons
+        -if it is clicked:
+          -if score surpasses best score, set best score 
+          -set score 0
+          -randomize cards
+          -set clicked cards to empty
+        
 
 
-  -user can click one image at a time
+
   -If image was already clicked previously, reset the counter and reset images
   -If image was not clicked already, add one to counter and reset images
 */
