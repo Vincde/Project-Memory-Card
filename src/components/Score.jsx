@@ -1,6 +1,6 @@
 export default function Score({score, bestScore}) {
     return(
-        <div>
+        <div className="score-container">
             <div>
                 <h1>The Memory game</h1>
                 <p>Get points by clicking on an image but don't click on any more than once!</p>

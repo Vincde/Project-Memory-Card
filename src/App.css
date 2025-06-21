@@ -7,3 +7,10 @@
   width: 100%;
 }
 
+.score-container{
+  text-align: center;
+}
+
+.score-container p{
+  font-weight: 900;
+}
