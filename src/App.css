@@ -14,3 +14,13 @@
 .score-container p{
   font-weight: 900;
 }
+
+.cards-container{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.cards-container__pokemon img{
+  width: 100%;
+}

@@ -51,9 +51,9 @@ function handleCardsClick(url) {
 
 
     return(
-        <div>
+        <div className="cards-container">
             {pokemons.map((pokemon) => {
-                return(<div key={pokemon.id} onClick={() => handleCardsClick(pokemon.value)}>
+                return(<div className="cards-container__pokemon" key={pokemon.id} onClick={() => handleCardsClick(pokemon.value)}>
                     <img src={pokemon.value} alt="" />
                 </div>)
             })}
