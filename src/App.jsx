@@ -15,7 +15,8 @@ function App() {
   useEffect(() => {
     if(!didInit){
     didInit = true;
-    fetchPokemons(handlePokemons);
+    fetchPokemons()
+    .then(() => setPokemons([...pokemonsArray]));
     }
   }, []); 
 
