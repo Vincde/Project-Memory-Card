@@ -22,18 +22,30 @@
   } */
 
 
+/* 
+  How do we split this function: 
+  - get 12 different urls.
+
+  - fetch every url 
+  - for every result use another fetch
+  - return the fetched data and insert its url into the array
+  - return the array
+*/
+
+
 export default function fetchPokemons() {
+  let arrayOfUrls = [];
+
   let randomNumber;
-  let pokemonsArray = [];
 
   for(let i = 0; i < 12; i++) {
-  randomNumber = Math.floor(Math.random() * 1302 + 1);
-  fetch(`https://pokeapi.co/api/v2/pokemon?offset=${randomNumber}&limit=1`)
-  .then((data) => data.json())
-  .then((res) => {
-    fetch(res.results[0].url)
-    .then((data) => data.json())
-    .then((pokemon) => pokemonsArray.push({id: i, value : pokemon.sprites.front_default}))
-    })
+    randomNumber = Math.floor(Math.random() * 1302 + 1);
+    
+    if(aray) // if array of urls already had the number
+
+    arrayOfUrls.push(randomNumber);
+
   }
+
+  
 }
