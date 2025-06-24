@@ -1,7 +1,11 @@
-
+@font-face {
+  font-family: 'pixelated';
+  src: url(./assets/PixelifySans-VariableFont_wght.ttf);
+}
 
 #root{
   width: 100%;
+  font-family: 'pixelated';
 }
 
 .score-container{
@@ -14,11 +18,13 @@
 
 .cards-container{
   display: grid;
+  gap:20px;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
+
 .cards-container__pokemon img{
-  border: 5px solid orange;
+  border: 5px solid rgba(0, 0, 0, 0.5);
   width: 100%;
 }
