@@ -1,7 +1,4 @@
-*{
-  border:2px solid red;
-  margin: 5px;
-}
+
 
 #root{
   width: 100%;
@@ -17,10 +14,11 @@
 
 .cards-container{
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
 .cards-container__pokemon img{
+  border: 5px solid orange;
   width: 100%;
 }
