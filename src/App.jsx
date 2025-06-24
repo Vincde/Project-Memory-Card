@@ -16,7 +16,7 @@ function App() {
     if(!didInit){
     didInit = true;
     fetchPokemons()
-    .then((pokemons) => console.log(pokemons));
+    .then((array) => setPokemons([...array]));
     }
   }, []); 
 
