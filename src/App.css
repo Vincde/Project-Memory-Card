@@ -17,14 +17,25 @@
 }
 
 .cards-container{
+  width: 95%;
   display: grid;
   gap:20px;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
 }
 
+.cards-container__pokemon{
+  transition: translate 1s ease-out 0.25s;
+}
+
+.cards-container__pokemon:hover{
+  transform: translate(5px, -5px);
+}
 
 .cards-container__pokemon img{
-  border: 5px solid rgba(0, 0, 0, 0.5);
+  border: 5px solid #708a58;
   width: 100%;
+  border-radius: 10px;
+
 }
+
