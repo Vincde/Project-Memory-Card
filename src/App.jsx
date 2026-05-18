@@ -1,21 +1,23 @@
 
 /* 
   Component design:
-    - An introduction page, with title and score
-      - Score has two things: current score and best score
-    
-    - Central part of the page:
-      - The cards
+    - scoreboard
+    - cards container
 
 
-    - Current score state
-    - Best score state
+    scoreboard:
+      var current-score: value that resets for each "lose" event, updates for "win" event
+      var best-score: value that resets after each "lose" event
+        in particular checks if value of current score exceeds preeceding value
 
-    -Cards
-      each card is clickable.
-      three possibilities:
-        - the card is new
-        - the card is already clicked
+    cards container:
+      - shows Card component (api call with useEffect?)
+      - shuffle list of cards after each click
+      - memorize the list of cards and its elements (array of elements?)
+      - Card:
+          - returns the element with image, name, etc.
+      
+
 */
 
 function App() {
