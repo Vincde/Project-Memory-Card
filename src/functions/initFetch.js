@@ -1,23 +1,27 @@
 export default async function initFetch() {
-    
-    const numbersArr = [];
+    const offsetArray = [];
     const fetchArr = [];
 
     
     for(let i = 0; i < 12; i++) {
-        numbersArr.push(Math.floor(Math.random() * 1000) + 1);
-        const singleElement = fetch(`https://pokeapi.co/api/v2/pokemon/${numbersArr[i]}`)
+        let randomOffset = Math.floor(Math.random() * 1000) + 1;
+
+        while(offsetArray.find(randomOffset) !== undefined){
+            randomOffset = Math.floor(Math.random() * 1000) + 1;
+        }
+
+        offsetArray.push(randomOffset);
+
+        const singleElement = fetch(`https://pokeapi.co/api/v2/pokemon/${randomOffset}`)
         .then((el) => el.json())
         fetchArr.push(singleElement);
     }
 
-
     Promise.all(fetchArr).then(async (arr) => {
+        const finalPokemons = [];
         for(const el of arr){
-            console.log(el.sprites.front_default);
+            finalPokemons.push({name: el.name, img: el.sprites.front_default});
         }
+        return finalPokemons;
     });
-   
-
-
 }

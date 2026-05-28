@@ -10,9 +10,12 @@ function App() {
   useEffect(() => {
     if(!didInit){
       didInit = true;
-      setPokemons(initFetch);
+      setPokemons(initFetch());
     }
   }, []);
+
+
+  
 }
 
 export default App
