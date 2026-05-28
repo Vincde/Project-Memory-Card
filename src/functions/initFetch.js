@@ -6,7 +6,7 @@ export default async function initFetch() {
     for(let i = 0; i < 12; i++) {
         let randomOffset = Math.floor(Math.random() * 1000) + 1;
 
-        while(offsetArray.find(randomOffset) !== undefined){
+        while(offsetArray.find(el => el === randomOffset) !== undefined){
             randomOffset = Math.floor(Math.random() * 1000) + 1;
         }
 
@@ -14,6 +14,7 @@ export default async function initFetch() {
 
         const singleElement = fetch(`https://pokeapi.co/api/v2/pokemon/${randomOffset}`)
         .then((el) => el.json())
+        .catch((er) => console.log(er));
         fetchArr.push(singleElement);
     }
 

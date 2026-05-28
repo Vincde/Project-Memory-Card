@@ -1,1 +1,9 @@
+*{
+    border:2px solid red;
+}
 
+.scoreBoard{
+    display:flex;
+    justify-content: space-between;
+    margin: 0 30px;
+}
