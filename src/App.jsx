@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import initFetch from "./functions/initFetch";
 
 
 let didInit = false;
