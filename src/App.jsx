@@ -22,8 +22,8 @@ function App() {
 
   return(
     <>
-    <Score score={score} bestScore={bestScore} ></Score>
-    <Cards></Cards>
+    <Score score={score} bestScore={bestScore}></Score>
+    <Cards pokemons={pokemons} onMatch={setScore} onGreater={setBestScore}></Cards>
     </>
   );
 }
