@@ -9,6 +9,9 @@ let didInit = false;
 function App() {
   const [pokemons, setPokemons] = useState([]);
 
+  const [score, setScore] = useState(0);
+  const [bestScore, setBestScore] = useState(0);
+
   useEffect(() => {
     if(!didInit){
       didInit = true;
@@ -19,7 +22,7 @@ function App() {
 
   return(
     <>
-    <Score></Score>
+    <Score score={score} bestScore={bestScore} ></Score>
     <Cards></Cards>
     </>
   );

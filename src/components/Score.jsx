@@ -1,5 +1,6 @@
-export default function Score() {
+import { useState } from "react"
 
+export default function Score({bestScore, onGreaterThanScore}) {
     return(
         <div className="scoreBoard">
             <h2>Hi! hit the elements!</h2>
