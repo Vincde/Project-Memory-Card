@@ -11,6 +11,7 @@
 
 
 .scoreBoard{
-background: #EEAECA;
-background: linear-gradient(153deg,rgba(238, 174, 202, 1) 7%, rgba(148, 187, 233, 1) 100%);
+    background: #EEAECA;
+    background: linear-gradient(153deg,rgba(238, 174, 202, 1) 7%, rgba(148, 187, 233, 1) 100%);
+    padding: 15px;
 }
