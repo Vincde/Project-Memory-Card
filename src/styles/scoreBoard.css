@@ -1,7 +1,16 @@
 .scoreBoard div{
     text-align: right;
+    margin-right: 170px;
+    font-weight: bold;
 }
 
 .scoreBoard h2{
+    margin-top: 30px;
     text-align: center;
+}
+
+
+.scoreBoard{
+background: #EEAECA;
+background: linear-gradient(153deg,rgba(238, 174, 202, 1) 7%, rgba(148, 187, 233, 1) 100%);
 }
