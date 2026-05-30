@@ -1,9 +1,11 @@
-*{
-    border:2px solid red;
+@font-face {
+    font-family: 'myFont';
+    src: url('./assets/StoryScript-Regular.ttf');
 }
 
-.scoreBoard{
-    display:flex;
-    justify-content: space-between;
-    margin: 0 30px;
+*{
+    margin: 0;
+    padding: 0;
+    border:2px solid red;
+    font-family: 'myFont';
 }
