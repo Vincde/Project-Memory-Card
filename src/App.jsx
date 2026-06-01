@@ -11,6 +11,7 @@ function App() {
 
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
+  const [clicked, setClicked] = useState([]);
 
   useEffect(() => {
     if(!didInit){
@@ -19,11 +20,15 @@ function App() {
     }
   }, []);
 
+  function handleClickEvent(name) {
+    
+  }
+
 
   return(
     <>
     <Score score={score} bestScore={bestScore}></Score>
-    <Cards pokemons={pokemons} onMatch={setScore} onGreater={setBestScore}></Cards>
+    <Cards pokemons={pokemons} handleClickEvent={handleClickEvent}></Cards>
     </>
   );
 }
