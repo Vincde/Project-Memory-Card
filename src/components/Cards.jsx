@@ -1,4 +1,5 @@
 import "./../styles/scoreBoard.css" 
+import "./../styles/cards.css"
 
 export default function Cards({pokemons, handleClickEvent}) {
     return(
@@ -13,7 +14,7 @@ export default function Cards({pokemons, handleClickEvent}) {
                     </div>
                 )
             })}
-        </div>
+            </div>
         )}
         
         </>
