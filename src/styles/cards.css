@@ -22,4 +22,5 @@
 
 .singlePokemon:hover{
     border-color:palevioletred;
+    transform: translate(-0.5rem, -0.5rem);
 }
