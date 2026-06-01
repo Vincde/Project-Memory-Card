@@ -27,7 +27,7 @@ function App() {
         setBestScore(score);
       }
       setClicked([]);
-      setPokemons(initFetch());
+      initFetch().then(pokemons => setPokemons(pokemons))
     }else{
       setPokemons([...(pokemons.sort(() => Math.random() - 0.5))]);
       setScore(score + 1);
