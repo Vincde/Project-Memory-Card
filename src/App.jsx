@@ -16,10 +16,7 @@ function App() {
   useEffect(() => {
     if(!didInit){
       didInit = true;
-      initFetch().
-      then((newPokemons) => {
-        setPokemons(newPokemons)
-      });
+      initFetch().then(pokemons => setPokemons(pokemons))
     }
   }, []);
 

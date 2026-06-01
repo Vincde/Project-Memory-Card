@@ -19,10 +19,10 @@ export default async function initFetch() {
         fetchArr.push(singleElement);
     }
 
-    Promise.all(fetchArr).then(async (arr) => {
+    return Promise.all(fetchArr).then(async (arr) => {
         for(const el of arr){
             finalPokemons.push({name: el.name, img: el.sprites.front_default});
         }
+        return finalPokemons;
     });
-    return finalPokemons;
 }
