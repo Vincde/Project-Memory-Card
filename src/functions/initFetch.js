@@ -1,6 +1,7 @@
 export default async function initFetch() {
     const offsetArray = [];
     const fetchArr = [];
+    const finalPokemons = [];
 
     
     for(let i = 0; i < 12; i++) {
@@ -19,10 +20,9 @@ export default async function initFetch() {
     }
 
     Promise.all(fetchArr).then(async (arr) => {
-        const finalPokemons = [];
         for(const el of arr){
             finalPokemons.push({name: el.name, img: el.sprites.front_default});
         }
-        return finalPokemons;
     });
+    return finalPokemons;
 }

@@ -16,12 +16,26 @@ function App() {
   useEffect(() => {
     if(!didInit){
       didInit = true;
-      setPokemons(initFetch());
+      initFetch().
+      then((newPokemons) => {
+        setPokemons(newPokemons)
+      });
     }
   }, []);
 
   function handleClickEvent(name) {
-    
+    if(clicked.includes(name)){
+      setScore(0);
+      if(score > bestScore){
+        setBestScore(score);
+      }
+      setClicked([]);
+      setPokemons(initFetch());
+    }else{
+      setPokemons([...(pokemons.sort(() => Math.random() - 0.5))]);
+      setScore(score + 1);
+      setClicked([...clicked, name]);
+    }
   }
 
 
