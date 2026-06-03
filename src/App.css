@@ -12,14 +12,15 @@
 
 .loading-container{
     display: flex;
-    gap: 10px;
+    align-items: center;
+    gap: 15px;
 }
 
 .spinner{
-    width: 60px;
-    height: 60px;
-    border: 8px solid #f3f3f3;
-    border-top: 8px solid #ffcb05;
+    width: 15px;
+    height: 15px;
+    border: 8px solid rgba(243, 243, 243, 0.349);
+    border-top: 8px solid #ad9335;
     border-radius: 50%;
     animation: spin 1s linear infinite;
 }
