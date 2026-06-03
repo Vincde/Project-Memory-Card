@@ -49,7 +49,8 @@ function App() {
     <Score score={score} bestScore={bestScore}></Score>
     {isLoading ? (
       <div className="loading-container">
-        <h2>Catching wild pokemons...</h2>
+        <h2>Catching wild pokemons </h2>
+        <div className="spinner"></div>
       </div>
     ) : (
       <Cards pokemons={pokemons} handleClickEvent={handleClickEvent}></Cards>
