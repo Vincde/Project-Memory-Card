@@ -37,9 +37,9 @@ function App() {
         setIsLoading(false);
       })
     }else{
-      setPokemons([...(pokemons.sort(() => Math.random() - 0.5))]);
-      setScore(score + 1);
-      setClicked([...clicked, name]);
+      setPokemons(prevPokemons => [...prevPokemons].sort(() => Math.random() - 0.5));
+      setScore(prevScore => prevScore + 1);
+      setClicked(prevClicked => [...prevClicked, name]);
     }
   };
 
