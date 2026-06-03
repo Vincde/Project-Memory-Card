@@ -12,11 +12,15 @@ function App() {
   const [score, setScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
   const [clicked, setClicked] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if(!didInit){
       didInit = true;
-      initFetch().then(pokemons => setPokemons(pokemons))
+      initFetch().then(pokemons => {
+        setPokemons(pokemons)
+        setIsLoading(false);
+      })
     }
   }, []);
 
@@ -27,19 +31,30 @@ function App() {
         setBestScore(score);
       }
       setClicked([]);
-      initFetch().then(pokemons => setPokemons(pokemons))
+      setIsLoading(true);
+      initFetch().then(pokemons => {
+        setPokemons(pokemons)
+        setIsLoading(false);
+      })
     }else{
       setPokemons([...(pokemons.sort(() => Math.random() - 0.5))]);
       setScore(score + 1);
       setClicked([...clicked, name]);
     }
-  }
+  };
 
 
   return(
     <>
     <Score score={score} bestScore={bestScore}></Score>
-    <Cards pokemons={pokemons} handleClickEvent={handleClickEvent}></Cards>
+    {isLoading ? (
+      <div className="loading-container">
+        <h2>Catching wild pokemons...</h2>
+      </div>
+    ) : (
+      <Cards pokemons={pokemons} handleClickEvent={handleClickEvent}></Cards>
+    )}
+    
     </>
   );
 }

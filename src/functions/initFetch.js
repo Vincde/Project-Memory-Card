@@ -1,28 +1,31 @@
 export default async function initFetch() {
-    const offsetArray = [];
-    const fetchArr = [];
-    const finalPokemons = [];
+    try{
 
-    
-    for(let i = 0; i < 12; i++) {
-        let randomOffset = Math.floor(Math.random() * 1000) + 1;
+        const uniqueIds = new Set();
 
-        while(offsetArray.find(el => el === randomOffset) !== undefined){
-            randomOffset = Math.floor(Math.random() * 1000) + 1;
-        }
 
-        offsetArray.push(randomOffset);
+        while(uniqueIds.size < 12) {
+            uniqueIds.add(Math.floor(Math.random() * 1000) + 1);
+        } 
 
-        const singleElement = fetch(`https://pokeapi.co/api/v2/pokemon/${randomOffset}`)
-        .then((el) => el.json())
-        .catch((er) => console.log(er));
-        fetchArr.push(singleElement);
+        const fetchPromises = Array.from(uniqueIds).map((id) => 
+            fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then((response) => {
+                if(!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                return response.json();
+            })
+        );
+
+
+        const rawPokemons = await Promise.all(fetchPromises);
+
+
+        return rawPokemons.map((pokemon) => ({
+            name: pokemon.name,
+            img: pokemon.sprites.front_default
+        }));
+
+    }catch( error ){
+        console.error("Failed to fetch pokemons:", error);
+        return [];
     }
-
-    return Promise.all(fetchArr).then(async (arr) => {
-        for(const el of arr){
-            finalPokemons.push({name: el.name, img: el.sprites.front_default});
-        }
-        return finalPokemons;
-    });
 }
